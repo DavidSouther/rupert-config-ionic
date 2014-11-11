@@ -9,9 +9,9 @@ module.exports = function (config){
     config.vendors.prefix = config.vendors.prefix || [];
     config.vendors.prefix.push(Path.resolve(__dirname, '../node_modules'));
 
-    config.vendors.js = (config.vendors.js || []).concat([
+    config.vendors.js = [
         'ionic/release/js/ionic.bundle.js'
-    ]);
+    ].concat((config.vendors.js || []));
 
     config.vendors.css = (config.vendors.css || []).concat ([
         'ionic/release/css/ionic.css'
