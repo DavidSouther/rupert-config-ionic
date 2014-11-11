@@ -1,6 +1,6 @@
 {
   "name": "rupert-config-ionic",
-  "version": null,
+  "version": "0.0.4",
   "description": "Ionic configurations, including full bundle.",
   "repository": "git@github.com:DavidSouther/rupert-config-ionic.git",
   "main": "src/config.js",
