@@ -1,13 +1,12 @@
 config =
   name: 'rupert-config-ionic.test'
   root: __dirname
+  plugins:
+    dependencies: {}
   stassets:
     root: __dirname
-    vendors:
-      config:
-        dependencies: {}
 
-config.stassets.vendors.config.dependencies[__dirname + '/../src/config'] = yes
+config.plugins.dependencies[__dirname + '/../src/config'] = yes
 
 describe 'Rupert Config Ionic', ->
   app = null
@@ -15,6 +14,7 @@ describe 'Rupert Config Ionic', ->
   before (done)->
     rupert.start ->
       app = rupert.app
+      config = rupert.config
       done()
 
   it 'attaches types to the config', ->
@@ -24,3 +24,5 @@ describe 'Rupert Config Ionic', ->
   it 'registers Angular file types', ->
     config.stassets.scripts.types.length.should.equal 6
 
+  it 'serves ionic fonts', ->
+    config.static['/fonts'].should.match /ionic.release.fonts/ 
